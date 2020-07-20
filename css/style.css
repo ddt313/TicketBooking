@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #04192e;
+}
+
+.wrapper-content {
+  width: 1100px;
+  margin: 0 auto;
+  color: white;
+}
+
+/* ----------header-------------- */
+
+.wrapper-content .main-header {
+  height: 60px;
+  background-color: aquamarine;
+}
+
+/* ----------------movie information--------------- */
+
+.wrapper-content .mov-infor {
+  height: 300px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper-content .mov-infor .thumb-picture {
+  width: 192px;
+  height: 280px;
+  margin-left: 70px;
+}
+
+.wrapper-content .mov-infor .thumb-picture img {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper-content .mov-infor .thumb-content {
+  margin-left: 50px;
+}
+
+.wrapper-content .mov-infor .thumb-content .title {
+  margin-bottom: 10px;
+}
+
+.wrapper-content .mov-infor .thumb-content .detail {
+  display: flex;
+}
+
+.wrapper-content .mov-infor .thumb-content .detail .imdb {
+  width: 100px;
+  display: flex;
+  line-height: 48px;
+}
+
+.wrapper-content .mov-infor .thumb-content .detail .imdb p {
+  margin-left: 5px;
+}
+
+.wrapper-content .mov-infor .thumb-content .detail .duration {
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper-content .mov-infor .thumb-content .detail .duration p {
+  margin-left: 5px;
+}
+
+.wrapper-content .mov-infor .thumb-content a {
+  text-decoration: none;
+  color: white;
+}
+
+.wrapper-content .mov-infor .thumb-content a .trailer-btn {
+  height: 40px;
+  width: 130px;
+  line-height: 40px;
+  margin-top: 50px;
+  text-align: center;
+  border: 2px solid #cca943;
+  border-radius: 10px;
+}
+
+.wrapper-content .mov-infor .thumb-content a .trailer-btn:hover {
+  background-color: #cca943;
+}
+
+
+/* ------------------date - time - locatio-------------------- */
+
+.wrapper-content .time-location {
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #053763;
+}
+
+.wrapper-content .time-location .date #date {
+  height: 28px;
+  font-size: 15px;
+  color: #cca943;
+  outline: none;
+  border: none;
+  background-color: inherit;
+}
+
+.wrapper-content .time-location .time #time {
+  height: 28px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: #cca943;
+  background-color: inherit;
+}
+
+.wrapper-content .time-location .select-selected {
+  background-color: #014380;
+  border: none;
+  outline: none;
+}
+
+.wrapper-content .time-location .cinema #cinema {
+  height: 28px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: #cca943;
+  background-color: inherit;
+}
+
+/* ----------------select seats--------------- */
+
+.wrapper-content .select-seats {
+  height: 500px;
+  display: flex;
+  margin-top: 10px;
+}
+
+.wrapper-content .select-seats .bill {
+  flex: 3;
+  margin-top: 90px;
+}
+
+.wrapper-content .select-seats .bill .bill-title {
+  text-align: center;
+}
+
+.wrapper-content .select-seats .bill .bill-selected {
+  margin-top: 20px;
+}
+
+.wrapper-content .select-seats .bill .bill-selected section {
+  display: flex;
+  margin-top: 5px;
+}
+
+.wrapper-content .select-seats .bill .bill-selected .seat-selected {
+  height: 35px;
+  width: 35px;
+  text-align: center;
+  margin-right: 5px;
+  line-height: 35px;
+  border-radius: 3px;
+}
+
+.wrapper-content .select-seats .bill .price {
+  margin-top: 40px;
+  margin-bottom: 65px;
+}
+
+.wrapper-content .select-seats .bill .price .price-detail {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.wrapper-content .select-seats .bill .price .price-detail .price-detail-left {
+  width: 150px;
+}
+
+.wrapper-content .select-seats .bill .add-food,
+.wrapper-content .select-seats .bill .buy-ticket {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  background-color: #014380;
+  border-radius: 10px;
+}
+
+.wrapper-content .select-seats .bill .buy-ticket {
+  margin-top: 15px;
+  background-color: #cca943;
+}
+
+.wrapper-content .select-seats .bill .add-food:hover,
+.wrapper-content .select-seats .bill .buy-ticket:hover {
+  cursor: pointer;
+}
+
+/* ----------------seats----------------- */
+
+.wrapper-content .select-seats .seats-screen {
+  flex: 7;
+}
+
+.wrapper-content .select-seats .annotation {
+  height: 30px;
+  width: 60%;
+  margin-top: 10px;
+  margin-left: 50%;
+  display: flex;
+  justify-content: left;
+}
+
+.wrapper-content .select-seats .annotation .annotation-item {
+  display: flex;
+  margin-right: 20px;
+  line-height: 30px;
+}
+
+.wrapper-content .select-seats .annotation .annotation-item div {
+  margin-right: 5px;
+}
+
+.wrapper-content .select-seats .seats-screen .screen {
+  width: 100%;
+  height: 30px;
+  margin: 10px auto 35px auto;
+  text-align: center;
+  line-height: 30px;
+  background-color: #cca943;
+  border-radius: 0px 0px 100% 100%;
+}
+
+.wrapper-content .select-seats .seats-screen .col {
+  width: 95%;
+  height: 30px;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  color: rgb(202, 202, 202);
+  justify-content: space-between;
+}
+
+.wrapper-content .select-seats .seats-screen .seats .col .index {
+  width: 30px;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 25px;
+}
+
+.wrapper-content .select-seats .seats-screen .seat {
+  width: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 11px 11px 0px 0px;
+  border: 2px solid #014380;
+}
+
+.wrapper-content .select-seats .seats-screen .seats .col .seat:hover {
+  background-color: #cca943;
+  cursor: pointer;
+}
+
+.wrapper-content .select-seats .seats-screen .sold {
+  background-color: #5b5e61;
+}
+
+.wrapper-content .select-seats .seats-screen .seats .col .sold:hover {
+  cursor: not-allowed;
+  background-color: #5b5e61;
+  
+}
+
+.wrapper-content .select-seats .seats-screen .selected {
+  background-color: #cca943;
+}
