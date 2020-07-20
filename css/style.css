@@ -157,16 +157,19 @@ body {
 
 .wrapper-content .select-seats .bill .bill-selected section {
   display: flex;
+  height: 35px;
   margin-top: 5px;
 }
 
 .wrapper-content .select-seats .bill .bill-selected .seat-selected {
   height: 35px;
-  width: 35px;
+  width: 40px;
+  background-color: #082f50;
+  color: #cca943;
   text-align: center;
   margin-right: 5px;
   line-height: 35px;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 
 .wrapper-content .select-seats .bill .price {

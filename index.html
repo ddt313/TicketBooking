@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
   <title>Ticket Booking</title>
 </head>
@@ -71,11 +72,8 @@
           Your Selected Seats
         </div>
         <div class="bill-selected">
-          <p>3 seats</p>
-          <section>
-            <div class="seat-selected">H10</div>
-            <div class="seat-selected">H11</div>
-            <div class="seat-selected">H12</div>
+          <p id="num-of-seats">0 Seats</p>
+          <section id="list-seat-selected">
           </section>
         </div>
         <div class="price">
@@ -85,7 +83,11 @@
           </div>
           <div class="price-detail">
             <div class="price-detail-left">Tổng số</div>
-            <div>3</div>
+            <div id="number-ticket">0</div>
+          </div>
+          <div class="price-detail">
+            <div class="price-detail-left">Thức ăn</div>
+            <div>0 VND</div>
           </div>
           <div class="price-detail">
             <div class="price-detail-left">Giảm giá</div>
@@ -126,255 +128,255 @@
         <div class="seats">
           <div class="col col-a">
             <div class="index">A</div>
-            <div class="seat">1</div>
-            <div class="seat">2</div>
-            <div class="seat">3</div>
-            <div class="seat">4</div>
-            <div class="seat">5</div>
-            <div class="seat">6</div>
-            <div class="seat">7</div>
-            <div class="seat">8</div>
-            <div class="seat">9</div>
-            <div class="seat">10</div>
-            <div class="seat">11</div>
-            <div class="seat">12</div>
-            <div class="seat">13</div>
-            <div class="seat">14</div>
-            <div class="seat">15</div>
-            <div class="seat">16</div>
-            <div class="seat">17</div>
-            <div class="seat">18</div>
+            <div class="seat" data-seat="a1">1</div>
+            <div class="seat" data-seat="a2">2</div>
+            <div class="seat sold" data-seat="a3">3</div>
+            <div class="seat" data-seat="a4">4</div>
+            <div class="seat" data-seat="a5">5</div>
+            <div class="seat" data-seat="a6">6</div>
+            <div class="seat" data-seat="a7">7</div>
+            <div class="seat" data-seat="a8">8</div>
+            <div class="seat" data-seat="a9">9</div>
+            <div class="seat" data-seat="a10">10</div>
+            <div class="seat" data-seat="a11">11</div>
+            <div class="seat" data-seat="a12">12</div>
+            <div class="seat" data-seat="a13">13</div>
+            <div class="seat" data-seat="a14">14</div>
+            <div class="seat" data-seat="a15">15</div>
+            <div class="seat" data-seat="a16">16</div>
+            <div class="seat" data-seat="a17">17</div>
+            <div class="seat" data-seat="a18">18</div>
           </div>          
           <div class="col col-b">
             <div class="index">B</div>
-            <div class="seat">1</div>
-            <div class="seat">2</div>
-            <div class="seat">3</div>
-            <div class="seat">4</div>
-            <div class="seat">5</div>
-            <div class="seat">6</div>
-            <div class="seat">7</div>
-            <div class="seat">8</div>
-            <div class="seat">9</div>
-            <div class="seat">10</div>
-            <div class="seat">11</div>
-            <div class="seat">12</div>
-            <div class="seat">13</div>
-            <div class="seat">14</div>
-            <div class="seat">15</div>
-            <div class="seat">16</div>
-            <div class="seat">17</div>
-            <div class="seat">18</div>
+            <div class="seat" data-seat="b1">1</div>
+            <div class="seat" data-seat="b2">2</div>
+            <div class="seat" data-seat="b3">3</div>
+            <div class="seat" data-seat="b4">4</div>
+            <div class="seat" data-seat="b5">5</div>
+            <div class="seat" data-seat="b6">6</div>
+            <div class="seat" data-seat="b7">7</div>
+            <div class="seat" data-seat="b8">8</div>
+            <div class="seat" data-seat="b9">9</div>
+            <div class="seat" data-seat="b10">10</div>
+            <div class="seat" data-seat="b11">11</div>
+            <div class="seat" data-seat="b12">12</div>
+            <div class="seat" data-seat="b13">13</div>
+            <div class="seat" data-seat="b14">14</div>
+            <div class="seat" data-seat="b15">15</div>
+            <div class="seat" data-seat="b16">16</div>
+            <div class="seat" data-seat="b17">17</div>
+            <div class="seat" data-seat="b18">18</div>
           </div>
           <div class="col col-c">
             <div class="index">C</div>
-            <div class="seat">1</div>
-            <div class="seat">2</div>
-            <div class="seat">3</div>
-            <div class="seat">4</div>
-            <div class="seat">5</div>
-            <div class="seat">6</div>
-            <div class="seat">7</div>
-            <div class="seat">8</div>
-            <div class="seat">9</div>
-            <div class="seat">10</div>
-            <div class="seat">11</div>
-            <div class="seat">12</div>
-            <div class="seat">13</div>
-            <div class="seat">14</div>
-            <div class="seat">15</div>
-            <div class="seat">16</div>
-            <div class="seat">17</div>
-            <div class="seat">18</div>
+            <div class="seat" data-seat="c1">1</div>
+            <div class="seat" data-seat="c2">2</div>
+            <div class="seat" data-seat="c3">3</div>
+            <div class="seat" data-seat="c4">4</div>
+            <div class="seat" data-seat="c5">5</div>
+            <div class="seat" data-seat="c6">6</div>
+            <div class="seat" data-seat="c7">7</div>
+            <div class="seat" data-seat="c8">8</div>
+            <div class="seat" data-seat="c9">9</div>
+            <div class="seat" data-seat="c10">10</div>
+            <div class="seat" data-seat="c11">11</div>
+            <div class="seat" data-seat="c12">12</div>
+            <div class="seat" data-seat="c13">13</div>
+            <div class="seat" data-seat="c14">14</div>
+            <div class="seat" data-seat="c15">15</div>
+            <div class="seat" data-seat="c16">16</div>
+            <div class="seat" data-seat="c17">17</div>
+            <div class="seat" data-seat="c18">18</div>
           </div>
           <div class="col col-d">
             <div class="index">D</div>
-            <div class="seat">1</div>
-            <div class="seat">2</div>
-            <div class="seat">3</div>
-            <div class="seat">4</div>
-            <div class="seat">5</div>
-            <div class="seat">6</div>
-            <div class="seat">7</div>
-            <div class="seat">8</div>
-            <div class="seat">9</div>
-            <div class="seat">10</div>
-            <div class="seat">11</div>
-            <div class="seat">12</div>
-            <div class="seat">13</div>
-            <div class="seat">14</div>
-            <div class="seat">15</div>
-            <div class="seat">16</div>
-            <div class="seat">17</div>
-            <div class="seat">18</div>
+            <div class="seat" data-seat="d1">1</div>
+            <div class="seat" data-seat="d2">2</div>
+            <div class="seat" data-seat="d3">3</div>
+            <div class="seat" data-seat="d4">4</div>
+            <div class="seat" data-seat="d5">5</div>
+            <div class="seat" data-seat="d6">6</div>
+            <div class="seat" data-seat="d7">7</div>
+            <div class="seat" data-seat="d8">8</div>
+            <div class="seat" data-seat="d9">9</div>
+            <div class="seat" data-seat="d10">10</div>
+            <div class="seat" data-seat="d11">11</div>
+            <div class="seat" data-seat="d12">12</div>
+            <div class="seat" data-seat="d13">13</div>
+            <div class="seat" data-seat="d14">14</div>
+            <div class="seat" data-seat="d15">15</div>
+            <div class="seat" data-seat="d16">16</div>
+            <div class="seat" data-seat="d17">17</div>
+            <div class="seat" data-seat="d18">18</div>
           </div>
           <div class="col col-e">
             <div class="index">E</div>
-            <div class="seat">1</div>
-            <div class="seat">2</div>
-            <div class="seat">3</div>
-            <div class="seat">4</div>
-            <div class="seat">5</div>
-            <div class="seat">6</div>
-            <div class="seat">7</div>
-            <div class="seat">8</div>
-            <div class="seat">9</div>
-            <div class="seat">10</div>
-            <div class="seat">11</div>
-            <div class="seat">12</div>
-            <div class="seat">13</div>
-            <div class="seat">14</div>
-            <div class="seat">15</div>
-            <div class="seat">16</div>
-            <div class="seat">17</div>
-            <div class="seat">18</div>
+            <div class="seat" data-seat="e1">1</div>
+            <div class="seat" data-seat="e2">2</div>
+            <div class="seat" data-seat="e3">3</div>
+            <div class="seat" data-seat="e4">4</div>
+            <div class="seat" data-seat="e5">5</div>
+            <div class="seat" data-seat="e6">6</div>
+            <div class="seat" data-seat="e7">7</div>
+            <div class="seat" data-seat="e8">8</div>
+            <div class="seat" data-seat="e9">9</div>
+            <div class="seat" data-seat="e10">10</div>
+            <div class="seat" data-seat="e11">11</div>
+            <div class="seat" data-seat="e12">12</div>
+            <div class="seat" data-seat="e13">13</div>
+            <div class="seat" data-seat="e14">14</div>
+            <div class="seat" data-seat="e15">15</div>
+            <div class="seat" data-seat="e16">16</div>
+            <div class="seat" data-seat="e17">17</div>
+            <div class="seat" data-seat="e18">18</div>
           </div>
           <div class="col col-f">
             <div class="index">F</div>
-            <div class="seat">1</div>
-            <div class="seat">2</div>
-            <div class="seat">3</div>
-            <div class="seat">4</div>
-            <div class="seat">5</div>
-            <div class="seat">6</div>
-            <div class="seat">7</div>
-            <div class="seat">8</div>
-            <div class="seat">9</div>
-            <div class="seat">10</div>
-            <div class="seat">11</div>
-            <div class="seat">12</div>
-            <div class="seat">13</div>
-            <div class="seat">14</div>
-            <div class="seat">15</div>
-            <div class="seat">16</div>
-            <div class="seat">17</div>
-            <div class="seat">18</div>
+            <div class="seat" data-seat="f1">1</div>
+            <div class="seat" data-seat="f2">2</div>
+            <div class="seat" data-seat="f3">3</div>
+            <div class="seat" data-seat="f4">4</div>
+            <div class="seat" data-seat="f5">5</div>
+            <div class="seat" data-seat="f6">6</div>
+            <div class="seat" data-seat="f7">7</div>
+            <div class="seat" data-seat="f8">8</div>
+            <div class="seat" data-seat="f9">9</div>
+            <div class="seat" data-seat="f10">10</div>
+            <div class="seat" data-seat="f11">11</div>
+            <div class="seat" data-seat="f12">12</div>
+            <div class="seat" data-seat="f13">13</div>
+            <div class="seat" data-seat="f14">14</div>
+            <div class="seat" data-seat="f15">15</div>
+            <div class="seat" data-seat="f16">16</div>
+            <div class="seat" data-seat="f17">17</div>
+            <div class="seat" data-seat="f18">18</div>
           </div>
           <div class="col col-g">
             <div class="index">G</div>
-            <div class="seat">1</div>
-            <div class="seat">2</div>
-            <div class="seat">3</div>
-            <div class="seat">4</div>
-            <div class="seat">5</div>
-            <div class="seat">6</div>
-            <div class="seat">7</div>
-            <div class="seat">8</div>
-            <div class="seat">9</div>
-            <div class="seat">10</div>
-            <div class="seat">11</div>
-            <div class="seat">12</div>
-            <div class="seat">13</div>
-            <div class="seat">14</div>
-            <div class="seat">15</div>
-            <div class="seat">16</div>
-            <div class="seat">17</div>
-            <div class="seat">18</div>
+            <div class="seat" data-seat="g1">1</div>
+            <div class="seat" data-seat="g2">2</div>
+            <div class="seat" data-seat="g3">3</div>
+            <div class="seat" data-seat="g4">4</div>
+            <div class="seat" data-seat="g5">5</div>
+            <div class="seat" data-seat="g6">6</div>
+            <div class="seat" data-seat="g7">7</div>
+            <div class="seat" data-seat="g8">8</div>
+            <div class="seat" data-seat="g9">9</div>
+            <div class="seat" data-seat="g10">10</div>
+            <div class="seat" data-seat="g11">11</div>
+            <div class="seat" data-seat="g12">12</div>
+            <div class="seat" data-seat="g13">13</div>
+            <div class="seat" data-seat="g14">14</div>
+            <div class="seat" data-seat="g15">15</div>
+            <div class="seat" data-seat="g16">16</div>
+            <div class="seat" data-seat="g17">17</div>
+            <div class="seat" data-seat="g18">18</div>
           </div>
           <div class="col col-h">
             <div class="index">H</div>
-            <div class="seat">1</div>
-            <div class="seat">2</div>
-            <div class="seat">3</div>
-            <div class="seat">4</div>
-            <div class="seat">5</div>
-            <div class="seat">6</div>
-            <div class="seat">7</div>
-            <div class="seat">8</div>
-            <div class="seat">9</div>
-            <div class="seat">10</div>
-            <div class="seat">11</div>
-            <div class="seat">12</div>
-            <div class="seat">13</div>
-            <div class="seat">14</div>
-            <div class="seat">15</div>
-            <div class="seat">16</div>
-            <div class="seat">17</div>
-            <div class="seat">18</div>
+            <div class="seat" data-seat="h1">1</div>
+            <div class="seat" data-seat="h2">2</div>
+            <div class="seat" data-seat="h3">3</div>
+            <div class="seat" data-seat="h4">4</div>
+            <div class="seat" data-seat="h5">5</div>
+            <div class="seat" data-seat="h6">6</div>
+            <div class="seat" data-seat="h7">7</div>
+            <div class="seat" data-seat="h8">8</div>
+            <div class="seat" data-seat="h9">9</div>
+            <div class="seat" data-seat="h10">10</div>
+            <div class="seat" data-seat="h11">11</div>
+            <div class="seat" data-seat="h12">12</div>
+            <div class="seat" data-seat="h13">13</div>
+            <div class="seat" data-seat="h14">14</div>
+            <div class="seat" data-seat="h15">15</div>
+            <div class="seat" data-seat="h16">16</div>
+            <div class="seat" data-seat="h17">17</div>
+            <div class="seat" data-seat="h18">18</div>
           </div>
           <div class="col col-i">
             <div class="index">I</div>
-            <div class="seat">1</div>
-            <div class="seat">2</div>
-            <div class="seat">3</div>
-            <div class="seat">4</div>
-            <div class="seat">5</div>
-            <div class="seat">6</div>
-            <div class="seat">7</div>
-            <div class="seat">8</div>
-            <div class="seat">9</div>
-            <div class="seat">10</div>
-            <div class="seat">11</div>
-            <div class="seat">12</div>
-            <div class="seat">13</div>
-            <div class="seat">14</div>
-            <div class="seat">15</div>
-            <div class="seat">16</div>
-            <div class="seat">17</div>
-            <div class="seat">18</div>
+            <div class="seat" data-seat="i1">1</div>
+            <div class="seat" data-seat="i2">2</div>
+            <div class="seat" data-seat="i3">3</div>
+            <div class="seat" data-seat="i4">4</div>
+            <div class="seat" data-seat="i5">5</div>
+            <div class="seat" data-seat="i6">6</div>
+            <div class="seat" data-seat="i7">7</div>
+            <div class="seat" data-seat="i8">8</div>
+            <div class="seat" data-seat="i9">9</div>
+            <div class="seat" data-seat="i10">10</div>
+            <div class="seat" data-seat="i11">11</div>
+            <div class="seat" data-seat="i12">12</div>
+            <div class="seat" data-seat="i13">13</div>
+            <div class="seat" data-seat="i14">14</div>
+            <div class="seat" data-seat="i15">15</div>
+            <div class="seat" data-seat="i16">16</div>
+            <div class="seat" data-seat="i17">17</div>
+            <div class="seat" data-seat="i18">18</div>
           </div>
           <div class="col col-j">
             <div class="index">J</div>
-            <div class="seat">1</div>
-            <div class="seat">2</div>
-            <div class="seat">3</div>
-            <div class="seat">4</div>
-            <div class="seat">5</div>
-            <div class="seat">6</div>
-            <div class="seat">7</div>
-            <div class="seat">8</div>
-            <div class="seat">9</div>
-            <div class="seat">10</div>
-            <div class="seat">11</div>
-            <div class="seat">12</div>
-            <div class="seat">13</div>
-            <div class="seat">14</div>
-            <div class="seat">15</div>
-            <div class="seat">16</div>
-            <div class="seat">17</div>
-            <div class="seat">18</div>
+            <div class="seat" data-seat="j1">1</div>
+            <div class="seat" data-seat="j2">2</div>
+            <div class="seat" data-seat="j3">3</div>
+            <div class="seat" data-seat="j4">4</div>
+            <div class="seat" data-seat="j5">5</div>
+            <div class="seat" data-seat="j6">6</div>
+            <div class="seat" data-seat="j7">7</div>
+            <div class="seat" data-seat="j8">8</div>
+            <div class="seat" data-seat="j9">9</div>
+            <div class="seat" data-seat="j10">10</div>
+            <div class="seat" data-seat="j11">11</div>
+            <div class="seat" data-seat="j12">12</div>
+            <div class="seat" data-seat="j13">13</div>
+            <div class="seat" data-seat="j14">14</div>
+            <div class="seat" data-seat="j15">15</div>
+            <div class="seat" data-seat="j16">16</div>
+            <div class="seat" data-seat="j17">17</div>
+            <div class="seat" data-seat="j18">18</div>
           </div>
           <div class="col col-k">
             <div class="index">K</div>
-            <div class="seat">1</div>
-            <div class="seat">2</div>
-            <div class="seat">3</div>
-            <div class="seat">4</div>
-            <div class="seat">5</div>
-            <div class="seat">6</div>
-            <div class="seat">7</div>
-            <div class="seat">8</div>
-            <div class="seat">9</div>
-            <div class="seat">10</div>
-            <div class="seat">11</div>
-            <div class="seat">12</div>
-            <div class="seat">13</div>
-            <div class="seat">14</div>
-            <div class="seat">15</div>
-            <div class="seat">16</div>
-            <div class="seat">17</div>
-            <div class="seat">18</div>
+            <div class="seat" data-seat="k1">1</div>
+            <div class="seat" data-seat="k2">2</div>
+            <div class="seat" data-seat="k3">3</div>
+            <div class="seat" data-seat="k4">4</div>
+            <div class="seat" data-seat="k5">5</div>
+            <div class="seat" data-seat="k6">6</div>
+            <div class="seat" data-seat="k7">7</div>
+            <div class="seat" data-seat="k8">8</div>
+            <div class="seat" data-seat="k9">9</div>
+            <div class="seat" data-seat="k10">10</div>
+            <div class="seat" data-seat="k11">11</div>
+            <div class="seat" data-seat="k12">12</div>
+            <div class="seat" data-seat="k13">13</div>
+            <div class="seat" data-seat="k14">14</div>
+            <div class="seat" data-seat="k15">15</div>
+            <div class="seat" data-seat="k16">16</div>
+            <div class="seat" data-seat="k17">17</div>
+            <div class="seat" data-seat="k18">18</div>
           </div>
           <div class="col col-l">
             <div class="index">L</div>
-            <div class="seat">1</div>
-            <div class="seat">2</div>
-            <div class="seat">3</div>
-            <div class="seat">4</div>
-            <div class="seat">5</div>
-            <div class="seat">6</div>
-            <div class="seat">7</div>
-            <div class="seat">8</div>
-            <div class="seat">9</div>
-            <div class="seat">10</div>
-            <div class="seat">11</div>
-            <div class="seat">12</div>
-            <div class="seat">13</div>
-            <div class="seat">14</div>
-            <div class="seat">15</div>
-            <div class="seat">16</div>
-            <div class="seat">17</div>
-            <div class="seat">18</div>
+            <div class="seat" data-seat="l1">1</div>
+            <div class="seat" data-seat="l2">2</div>
+            <div class="seat" data-seat="l3">3</div>
+            <div class="seat" data-seat="l4">4</div>
+            <div class="seat" data-seat="l5">5</div>
+            <div class="seat" data-seat="l6">6</div>
+            <div class="seat" data-seat="l7">7</div>
+            <div class="seat" data-seat="l8">8</div>
+            <div class="seat" data-seat="l9">9</div>
+            <div class="seat" data-seat="l10">10</div>
+            <div class="seat" data-seat="l11">11</div>
+            <div class="seat" data-seat="l12">12</div>
+            <div class="seat" data-seat="l13">13</div>
+            <div class="seat" data-seat="l14">14</div>
+            <div class="seat" data-seat="l15">15</div>
+            <div class="seat" data-seat="l16">16</div>
+            <div class="seat" data-seat="l17">17</div>
+            <div class="seat" data-seat="l18">18</div>
           </div>
         </div>
       </div>
@@ -384,5 +386,44 @@
       
     </div>
   </div>
+
+  <script>
+    $(document).ready(function() {
+      var seats = {length : 0};
+
+      $(".seat").click(function() {        
+        if (this.classList.contains("sold")) {
+          return;
+        }
+
+        this.classList.toggle("selected");
+        var seat = this.dataset.seat;
+
+        if (seats[seat]) {
+          delete seats[seat];
+          seats.length--;
+        } else {
+          seats[seat] = 1;
+          seats.length++;
+        }
+
+        $("#num-of-seats").empty();
+        $("#num-of-seats").append(`${seats.length} Seats`);
+        
+        $("#list-seat-selected").empty();
+        for (var seat in seats) {
+          if (seat != "length") {
+            var elementSeatSeleted = `<div class="seat-selected">${seat.toUpperCase()}</div>`;
+            $("#list-seat-selected").append(elementSeatSeleted);
+          }
+        }
+
+        $("#number-ticket").empty();
+        $("#number-ticket").append(seats.length);
+      });
+    });
+  </script>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
