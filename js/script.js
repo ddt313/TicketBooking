@@ -1,6 +1,16 @@
+var seatsSelected = null;
+var seatsSold = null;
+var ticketPrice = 0;
+var foodMoney = 0;
+var discount = 0;
+var totalMoney = 0;
+var quantityTicket = 0;
+
 $(document).ready(function() {
-  var seatsSelected = {length : 0};
-  var seatsSold = {
+  $(".interface-add-food").hide();
+
+  seatsSelected = {length : 0};
+  seatsSold = {
     length : 7,
     "h10": 1,
     "h9": 1,
@@ -10,11 +20,11 @@ $(document).ready(function() {
     "i6": 1,
     "i5": 1
   };
-  var ticketPrice = 100000;
-  var foodMoney = 0;
-  var discount = 11;
-  var totalMoney = 0;
-  var quantityTicket = 0;
+  ticketPrice = 100000;
+  foodMoney = 0;
+  discount = 11;
+  totalMoney = 0;
+  quantityTicket = 0;
 
   for (var seat in seatsSold) {
     if (seat != "length") {
@@ -43,8 +53,9 @@ $(document).ready(function() {
       seatsSelected.length++;
     }
 
+    quantityTicket = seatsSelected.length;
     $("#num-of-seats").empty();
-    $("#num-of-seats").append(`${seatsSelected.length} Seats`);
+    $("#num-of-seats").append(`${quantityTicket} Seats`);
     
     $("#list-seat-selected").empty();
     for (var seat in seatsSelected) {
@@ -58,13 +69,22 @@ $(document).ready(function() {
     $("#number-ticket").empty();
     $("#number-ticket").append(quantityTicket);
 
-    totalMoney = calcTotalMoney(ticketPrice, quantityTicket, foodMoney, discount);
+    totalMoney = calcTotalMoney();
     $("#total-price").empty();
     $("#total-price").append(`${formatMoney(totalMoney)} VND`);
   });
 
   $("#ticket-price").append(`${formatMoney(ticketPrice)} VND`);
   $("#discount").append(`${discount}%`);
+
+  // ----------------------add foods----------------
+  $(".add-food").click(function() {
+    $(".interface-add-food").show();
+  });
+
+  $("#close-add-food").click(function() {
+    $(".interface-add-food").hide();
+  });
 });
 
 function formatMoney(money) {
@@ -86,6 +106,6 @@ function formatMoney(money) {
   return res;
 }
 
-function calcTotalMoney(ticketPrice, quantity, food, discount) {
-  return Math.round((ticketPrice * quantity + food) * (1 - discount / 100.0));
+function calcTotalMoney() {
+  return Math.round((ticketPrice * quantityTicket + foodMoney) * (1 - discount / 100.0));
 }

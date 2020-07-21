@@ -9,6 +9,7 @@ body {
 
 .wrapper-content {
   width: 1100px;
+  position: relative;
   margin: 0 auto;
   color: white;
 }
@@ -303,4 +304,34 @@ body {
 
 .wrapper-content .select-seats .seats-screen .selected {
   background-color: #cca943;
+}
+
+/* -------------------add food------------ */
+
+.wrapper-content .interface-add-food {
+  display: flex;
+  flex-wrap: wrap;
+  width: 900px;
+  height: 700px;
+  background-color: #cca943;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+}
+
+.wrapper-content .interface-add-food .food-item {
+  width: 210px;
+  height: 160px;
+  margin: 0 10px 0 0;
+}
+
+.wrapper-content .interface-add-food .food-item img {
+  width: 210px;
+  height: 140px;
+}
+
+.wrapper-content .interface-add-food #close-add-food {
+  width: 50px;
+  height: 30px;
+  background-color: #014380;
 }
