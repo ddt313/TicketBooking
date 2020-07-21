@@ -79,7 +79,7 @@
         <div class="price">
           <div class="price-detail">
             <div class="price-detail-left">Giá vé</div>
-            <div>100,000 VND</div>
+            <div id="ticket-price"></div>
           </div>
           <div class="price-detail">
             <div class="price-detail-left">Tổng số</div>
@@ -91,7 +91,7 @@
           </div>
           <div class="price-detail">
             <div class="price-detail-left">Giảm giá</div>
-            <div>10%</div>
+            <div id="discount"></div>
           </div>
           <div class="price-detail">
             <div class="price-detail-left">Thành tiền</div>
@@ -130,7 +130,7 @@
             <div class="index">A</div>
             <div class="seat" data-seat="a1">1</div>
             <div class="seat" data-seat="a2">2</div>
-            <div class="seat sold" data-seat="a3">3</div>
+            <div class="seat" data-seat="a3">3</div>
             <div class="seat" data-seat="a4">4</div>
             <div class="seat" data-seat="a5">5</div>
             <div class="seat" data-seat="a6">6</div>
@@ -386,43 +386,6 @@
       
     </div>
   </div>
-
-  <script>
-    $(document).ready(function() {
-      var seats = {length : 0};
-
-      $(".seat").click(function() {        
-        if (this.classList.contains("sold")) {
-          return;
-        }
-
-        this.classList.toggle("selected");
-        var seat = this.dataset.seat;
-
-        if (seats[seat]) {
-          delete seats[seat];
-          seats.length--;
-        } else {
-          seats[seat] = 1;
-          seats.length++;
-        }
-
-        $("#num-of-seats").empty();
-        $("#num-of-seats").append(`${seats.length} Seats`);
-        
-        $("#list-seat-selected").empty();
-        for (var seat in seats) {
-          if (seat != "length") {
-            var elementSeatSeleted = `<div class="seat-selected">${seat.toUpperCase()}</div>`;
-            $("#list-seat-selected").append(elementSeatSeleted);
-          }
-        }
-
-        $("#number-ticket").empty();
-        $("#number-ticket").append(seats.length);
-      });
-    });
-  </script>
 
   <script src="js/script.js"></script>
 </body>
