@@ -143,7 +143,8 @@ body {
 }
 
 .wrapper-content .select-seats .bill {
-  flex: 3;
+  /* flex: 3; */
+  width: 330px;
   margin-top: 90px;
 }
 
@@ -157,8 +158,27 @@ body {
 
 .wrapper-content .select-seats .bill .bill-selected section {
   display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
   height: 35px;
   margin-top: 5px;
+}
+
+#list-seat-selected::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(1, 67, 128, 0.3);
+	background-color: #F5F5F5;
+}
+
+#list-seat-selected::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+#list-seat-selected::-webkit-scrollbar-thumb
+{
+	background-color: #014380;
 }
 
 .wrapper-content .select-seats .bill .bill-selected .seat-selected {

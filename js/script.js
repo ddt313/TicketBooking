@@ -10,10 +10,11 @@ $(document).ready(function() {
     "i6": 1,
     "i5": 1
   };
-  var ticketPrice = 70000;
-  var discount = 10;
+  var ticketPrice = 100000;
+  var foodMoney = 0;
+  var discount = 11;
   var totalMoney = 0;
-  var numberOfTicket = 0;
+  var quantityTicket = 0;
 
   for (var seat in seatsSold) {
     if (seat != "length") {
@@ -25,9 +26,14 @@ $(document).ready(function() {
     if (this.classList.contains("sold")) {
       return;
     }
+    
+    var seat = this.dataset.seat;
+    if (seatsSold[seat]) {
+      $(`.seats .seat[data-seat=${seat}]`).addClass("sold");
+      return;
+    }
 
     this.classList.toggle("selected");
-    var seat = this.dataset.seat;
 
     if (seatsSelected[seat]) {
       delete seatsSelected[seat];
@@ -48,8 +54,13 @@ $(document).ready(function() {
       }
     }
 
+    quantityTicket = seatsSelected.length;
     $("#number-ticket").empty();
-    $("#number-ticket").append(seatsSelected.length);
+    $("#number-ticket").append(quantityTicket);
+
+    totalMoney = calcTotalMoney(ticketPrice, quantityTicket, foodMoney, discount);
+    $("#total-price").empty();
+    $("#total-price").append(`${formatMoney(totalMoney)} VND`);
   });
 
   $("#ticket-price").append(`${formatMoney(ticketPrice)} VND`);
@@ -73,4 +84,8 @@ function formatMoney(money) {
   }
 
   return res;
+}
+
+function calcTotalMoney(ticketPrice, quantity, food, discount) {
+  return Math.round((ticketPrice * quantity + food) * (1 - discount / 100.0));
 }
